@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart</title>
+  <meta name="description" content="Review your Bean Boutique cart, adjust quantities, apply coupons, and proceed to checkout." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+
+  <!-- ── Navigation ───────────────────────────── -->
+    <nav>
+      <div class="logo">Bean <span class="logo-span">Boutique</span></div>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./coffee.html">Coffee</a></li>
+        <li><a href="./equipment.html">Equipment</a></li>
+        <li><a href="./Event.html">Event</a></li>
+        <li><a href="./offer.html">Offer</a></li>
+        <li id="icon-btn" class="icon-btn"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+      </ul>
+    </nav>
+
+  <!-- ── Page Banner ──────────────────────────── -->
+  <div class="page-banner-cart">
+    <div class="banner-contect-cart">
+      <h1><i class="fa-solid fa-cart-shopping"></i>Your Cart</h1>
+      <p>Review your items and proceed to checkout</p>
+    </div>
+  </div>
+
+  <!-- ── Cart Section ─────────────────────────── -->
+   
+  <section class="cart-section">
+    <div class="cart-wrapper">
+
+      <!-- Left: Cart Table -->
+      <div>
+        <div class="cart-table-wrap">
+          <table class="cart-table" id="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+              </tr>
+            </thead>
+            <tbody id="cart-body">
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+
+          <!-- Empty state (hidden when items exist) -->
+          <div class="cart-empty" id="cart-empty">
+            <i class="fa-solid fa-mug-hot"></i>
+            <p>Your cart is empty – add some great coffee!</p>
+            <a href="./coffee.html" class="btn">
+              <i class="fa-solid fa-arrow-left"></i> Browse Coffee
+            </a>
+          </div>
+        </div>
+
+        <!-- Coupon and update controls removed -->
+        <div class="cart-actions" id="cart-actions"></div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <aside class="order-summary" id="order-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="sum-subtotal">$0.00</span>
+        </div>
+        <div class="summary-row" id="discount-row" style="display:none;">
+          <span>Discount</span>
+          <span class="discount-green" id="sum-discount">-$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="sum-shipping">$3.00</span>
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="sum-total">$3.00</span>
+        </div>
+
+        <button class="checkout-btn" id="checkout-btn">
+          <i class="fa-solid fa-lock"></i>&nbsp; Proceed to Checkout
+        </button>
+        <!-- Continue Shopping link removed -->
+      </aside>
+
+    </div>
+  </section>
+
+
+  <!-- ── Footer ───────────────────────────────── -->
+     <!-- PLUGIN 1: Social Media Widget (in footer) -->
+    <!-- bottom -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-contect">
+          <h3>Contact Us</h3>
+          <p>Email: setpainga73@gmail.com</p>
+          <p>Phone: +959 421 036 626</p>
+          <p>Address: NO.136 Padamya Street</p>
+        </div>
+        <div class="footer-contect">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="./coffee.html">Coffee</a></li>
+            <li><a href="./equipment.html">Equipment</a></li>
+            <li><a href="./Event.html">Event</a></li>
+            <li><a href="./offer.html">Offer</a></li>
+          </ul>
+        </div>
+        <div class="footer-contect">
+          <h3>Follow Us</h3>
+          <!-- Local Social Feed (no external links) -->
+          <div class="social-feed"></div>
+          <div class="social">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+        </div>
+        <div class="footer-contect">
+          <h3>Security & Trust</h3>
+          <!-- PLUGIN 3: Security / Trust Badges -->
+          <div class="trust-badges" id="trust-badges">
+            <div class="trust-badge">
+              <i class="fa-solid fa-lock"></i>
+              <span>SSL Encrypted</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Data Protected</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Secure Payments</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>GDPR Compliant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p>&copy;2026 Bean Boutique. All rights reserved. | <a href="#" id="privacy-policy-link">Privacy Policy</a> | <a href="#" id="terms-link">Terms of Service</a></p>
+      </div>
+    </footer>
+
+ 
+  <!-- ── Scripts ──────────────────────────────── -->
+  <script src="../script/main.js"></script>
+  <script src="../script/cart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="../script/plugins.js"></script>
+
+</body>
+</html>

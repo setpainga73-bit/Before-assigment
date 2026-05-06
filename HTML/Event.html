@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Bean<span class="logo-span">Boutique</span></div>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="./html/coffee.html">Coffee</a></li>
+        <li><a href="./equipment.html">Equipment</a></li>
+        <li><a href="#">Event</a></li>
+        <li><a href="./offer.html">Offer</a></li>
+        <li>
+          <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- page banner -->
+
+    <div class="page-banner-event">
+      <div class="banner-contect-event">
+        <h1>Event and Workshop</h1>
+      </div>
+    </div>
+    <!-- event -->
+    <div class="event-grid">
+      <section class="event-card">
+        <div class="event-img">
+          <img src="../photo/event/Coffee tasting session.jpg" alt="" />
+        </div>
+        <div class="event-body">
+          <h2>Coffee Tasting Session</h2>
+          <p>
+            Join our expert roaster for a guided tasting of six single-origin
+            coffees from Africa, South America, and Asia. Learn to identify
+            flavour notes, understand processing methods, and discover your
+            personal coffee preferences.
+          </p>
+          <p class="event-time">Saturday, 10:00AM - 12:30PM</p>
+          <button class="btn-event">Register Now</button>
+        </div>
+      </section>
+
+      <section class="event-card">
+        <div class="event-img">
+          <img src="../photo/event/art worlshop.jpg" alt="" />
+        </div>
+        <div class="event-body">
+          <h2>Coffee Artwork</h2>
+          <p>
+            Learn the art of creating beautiful latte designs. Our barista
+            champion will teach you milk frothing techniques, pouring patterns
+            including hearts, rosettas, and tulips. All equipment and milk
+            provided.
+          </p>
+          <p class="event-time">Sunday, 12:00PM - 2PM</p>
+          <button class="btn-event">Register Now</button>
+        </div>
+      </section>
+
+      <section class="event-card">
+        <div class="event-img">
+          <img src="../photo/event/coffee morning.jpg" alt="" />
+        </div>
+        <div class="event-body">
+          <h2>Coffee Morning Section</h2>
+          <p>
+            A relaxed, free community event where coffee lovers come together.
+            Enjoy complimentary tastings, chat with fellow enthusiasts, and get
+            20% off all shop purchases during the event. All welcome, no booking
+            required for this one.
+          </p>
+          <p class="event-time">Sunday, 9:00AM - 11:00AM</p>
+          <button class="btn-event">Register Now</button>
+        </div>
+      </section>
+
+      <section class="event-card">
+        <div class="event-img">
+          <img src="../photo/event/class.jpg" alt="" />
+        </div>
+        <div class="event-body">
+          <h2>Brewing class</h2>
+          <p>
+            A hands-on workshop covering pour-over, French press, and Aeropress
+            techniques. You will learn about water temperature, grind size, and
+            extraction time. Take home a bag of our House Blend to practise your
+            new skills.
+          </p>
+          <p class="event-time">Saturday, 1:00PM - 3:00PM</p>
+          <button class="btn-event">Register Now</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- form -->
+
+    <section class="reg-section">
+      <div class="registration-form">
+        <h2>Event Registration</h2>
+        <form
+          action="mailto:setpainga73@gmail.com"
+          method="POST"
+          enctype="text/plain"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder="First Name..."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                placeholder="Last Name..."
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="event">Select Event</label>
+            <select id="event" name="event">
+              <option value="">-- Choose an event --</option>
+              <option value="Coffee Tasting Session">
+                Coffee Tasting Session
+              </option>
+              <option value="Coffee Artwork">Coffee Artwork</option>
+              <option value="Coffee Morning Section">
+                Coffee Morning Section
+              </option>
+              <option value="Brewing Class">Brewing Class</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Any dietary requirements or questions?"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="form-btn">Submit Registration</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer -->
+
+     <!-- PLUGIN 1: Social Media Widget (in footer) -->
+    <!-- bottom -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-contect">
+          <h3>Contact Us</h3>
+          <p>Email: setpainga73@gmail.com</p>
+          <p>Phone: +959 421 036 626</p>
+          <p>Address: NO.136 Padamya Street</p>
+        </div>
+        <div class="footer-contect">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./coffee.html">Coffee</a></li>
+            <li><a href="./equipment.html">Equipment</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="./offer.html">Offer</a></li>
+          </ul>
+        </div>
+        <div class="footer-contect">
+          <h3>Follow Us</h3>
+          <!-- Local Social Feed (no external links) -->
+          <div class="social-feed"></div>
+          <div class="social">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+        </div>
+        <div class="footer-contect">
+          <h3>Security & Trust</h3>
+          <!-- PLUGIN 3: Security / Trust Badges -->
+          <div class="trust-badges" id="trust-badges">
+            <div class="trust-badge">
+              <i class="fa-solid fa-lock"></i>
+              <span>SSL Encrypted</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Data Protected</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Secure Payments</span>
+            </div>
+            <div class="trust-badge">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>GDPR Compliant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <p>&copy;2026 Bean Boutique. All rights reserved. | <a href="#" id="privacy-policy-link">Privacy Policy</a> | <a href="#" id="terms-link">Terms of Service</a></p>
+      </div>
+    </footer>
+
+    <!-- PLUGIN 3: Cookie Consent / Security Banner -->
+    <div class="cookie-bar" id="cookie-consent" role="alertdialog" aria-label="Cookie consent notice">
+      <div class="cookie-bar-text">
+        <p>
+          <i class="fa-solid fa-shield-halved"></i>
+          We use cookies to enhance your experience and keep your data safe.
+          See our <a href="#" id="privacy-policy-link">Privacy Policy</a>.
+        </p>
+      </div>
+      <div class="cookie-bar-btns">
+        <button class="cookie-bar-accept" id="cookie-accept">Accept All</button>
+        <button class="cookie-bar-reject" id="cookie-reject">Decline</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="../script/main.js"></script>
+    <script src="../script/plugins.js"></script>
+   
+  </body>
+</html>
