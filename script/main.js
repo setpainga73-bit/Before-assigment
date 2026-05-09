@@ -20,15 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ── Discount popup (index.html only) ────────────────────────────────────────
-  setTimeout(function () {
-    const popup = document.getElementById("popup-box");
-    if (popup) popup.classList.add("pop-apper");
-  }, 1000);
+  const popup    = document.getElementById("popup-box");
+  const backdrop = document.getElementById("popup-backdrop");
+
+  function openPopup() {
+    if (popup)    popup.classList.add("pop-apper");
+    if (backdrop) backdrop.classList.add("active");
+  }
+
+  function closePopup() {
+    if (popup)    popup.classList.remove("pop-apper");
+    if (backdrop) backdrop.classList.remove("active");
+  }
+
+  setTimeout(openPopup, 1000);
 
   const closeBtn = document.getElementById("close-btn");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", function () {
-      document.getElementById("popup-box").classList.remove("pop-apper");
-    });
-  }
+  if (closeBtn) closeBtn.addEventListener("click", closePopup);
+
+  // Clicking the backdrop also closes the popup
+  if (backdrop) backdrop.addEventListener("click", closePopup);
+
+  // "No thanks" link closes popup
+  const skipBtn = document.querySelector(".skip");
+  if (skipBtn) skipBtn.addEventListener("click", closePopup);
 });
+
