@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bean Boutique — Premium Coffee Shop</title>
-    <meta name="description" content="Bean Boutique — Discover exceptional single-origin coffee, brewing equipment, community events, and exclusive member offers." />
+    <meta
+      name="description"
+      content="Bean Boutique — Discover exceptional single-origin coffee, brewing equipment, community events, and exclusive member offers."
+    />
     <link rel="stylesheet" href="./css/style.css" />
-   
+
     <!-- FullCalendar removed (no upcoming events) -->
     <link
       rel="stylesheet"
@@ -68,7 +71,7 @@
     </div>
     <!-- nav-bar -->
     <nav>
-      <div class="logo">Bean <span class="logo-span">Boutique</span></div>
+      <div class="logo">Bean <span class="logo-span">Boutique</span></div> <label for="skip-contect" class="skip-contect" id="skip">Skip Contect</label>
 
       <div class="menu-toggle" id="menu-toggle">
         <i class="fa-solid fa-bars"></i>
@@ -110,22 +113,16 @@
         </div>
         <!-- Duplicate slides for seamless infinite loop -->
         <div class="slide">
-          <img
-            src="./photo/cocoparisienne-coffee-2714970(1).jpg"
-            alt=""
-          />
+          <img src="./photo/cocoparisienne-coffee-2714970(1).jpg" alt="slideshow"/>
         </div>
         <div class="slide">
           <img
             src="./photo/cyril-saulnier-mpSMThAU4OY-unsplash(1).jpg"
-            alt=""
+            alt="slideshow"
           />
         </div>
         <div class="slide">
-          <img
-            src="./photo/pexels-victorfreitas-685527(1).jpg"
-            alt=""
-          />
+          <img src="./photo/pexels-victorfreitas-685527(1).jpg" alt="slideshow"/>
         </div>
       </div>
     </div>
@@ -145,77 +142,76 @@
 
     <!-- coffee box -->
 
-<section>
-  <div class="coffee-grid">
-    
-    <article class="coffee-card">
-      <div class="card-img">
-        <img src="./photo/coffee-card/blackcoffee.coffee.jpg" alt="" />
+    <section>
+      <div class="coffee-grid">
+        <article class="coffee-card">
+          <div class="card-img">
+            <img src="../photo/coffee-card/blackcoffee.coffee.jpg" alt="Black Coffee" />
+          </div>
+          <div class="card-body">
+            <h3>Black Coffee</h3>
+            <p>Plain brewed coffee with no milk or sugar</p>
+
+            <h4>Tasting Notes</h4>
+            <p>
+              Bold, sometimes bitter, with chocolatey to fruity flavors
+              depending on beans
+            </p>
+
+            <h4>Brewing Method</h4>
+            <p>Drip coffee maker</p>
+
+            <p class="card-price">$2</p>
+            <button class="btn-card">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="coffee-card">
+          <div class="card-img">
+            <img src="../photo/coffee-card/Cappuccino.jpg" alt="Cappuccino" />
+          </div>
+          <div class="card-body">
+            <h3>Cappuccino</h3>
+            <p>Equal parts espresso, steamed milk, and foam</p>
+
+            <h4>Tasting Notes</h4>
+            <p>Rich, creamy, and strong with a light airy texture</p>
+
+            <h4>Brewing Method</h4>
+            <p>Espresso machine + milk frother</p>
+
+            <p class="card-price">$2</p>
+            <button class="btn-card">Add to Cart</button>
+          </div>
+        </article>
+
+        <article class="coffee-card">
+          <div class="card-img">
+            <img src="../photo/coffee-card/espresso.coffee.jpg" alt="Espresso" />
+          </div>
+          <div class="card-body">
+            <h3>Espresso</h3>
+            <p>Highly concentrated coffee brewed under pressure</p>
+
+            <h4>Tasting Notes</h4>
+            <p>Strong, intense, slightly bitter with a thick crema</p>
+
+            <h4>Brewing Method</h4>
+            <p>Espresso machine</p>
+
+            <p class="card-price">$2</p>
+            <button class="btn-card">Add to Cart</button>
+          </div>
+        </article>
       </div>
-      <div class="card-body">
-        <h3>Black Coffee</h3>
-        <p>Plain brewed coffee with no milk or sugar</p>
-
-        <h4>Tasting Notes</h4>
-        <p>
-          Bold, sometimes bitter, with chocolatey to fruity flavors depending on beans
-        </p>
-
-        <h4>Brewing Method</h4>
-        <p>Drip coffee maker</p>
-
-        <p class="card-price">$2</p>
-        <button class="btn-card">Add to Cart</button>
-      </div>
-    </article>
-
-    <article class="coffee-card">
-      <div class="card-img">
-        <img src="./photo/coffee-card/Cappuccino.jpg" alt="" />
-      </div>
-      <div class="card-body">
-        <h3>Cappuccino</h3>
-        <p>Equal parts espresso, steamed milk, and foam</p>
-
-        <h4>Tasting Notes</h4>
-        <p>Rich, creamy, and strong with a light airy texture</p>
-
-        <h4>Brewing Method</h4>
-        <p>Espresso machine + milk frother</p>
-
-        <p class="card-price">$2</p>
-        <button class="btn-card">Add to Cart</button>
-      </div>
-    </article>
-
-    <article class="coffee-card">
-      <div class="card-img">
-        <img src="./photo/coffee-card/espresso.coffee.jpg" alt="" />
-      </div>
-      <div class="card-body">
-        <h3>Espresso</h3>
-        <p>Highly concentrated coffee brewed under pressure</p>
-
-        <h4>Tasting Notes</h4>
-        <p>Strong, intense, slightly bitter with a thick crema</p>
-
-        <h4>Brewing Method</h4>
-        <p>Espresso machine</p>
-
-        <p class="card-price">$2</p>
-        <button class="btn-card">Add to Cart</button>
-      </div>
-    </article>
-
-  </div>
-</section>
+    </section>
 
     <!-- equipment -->
 
     <section class="equipment-grid">
       <article class="equipment-card">
         <div class="equipment-img">
-          <img src="./photo/brew/AeroPress.jpg" alt="" />
+          <img src="../photo/brew/AeroPress.jpg" alt="Aero Press" />
         </div>
         <div class="equipment-body">
           <h3>Aero Press</h3>
@@ -239,7 +235,7 @@
 
       <article class="equipment-card">
         <div class="equipment-img">
-          <img src="./photo/brew/French press.jpg" alt="" />
+          <img src="./photo/brew/French press.jpg" alt="French Press"/>
         </div>
         <div class="equipment-body">
           <h3>France press</h3>
@@ -262,7 +258,7 @@
 
       <article class="equipment-card">
         <div class="equipment-img">
-          <img src="./photo/brew/Kalita Wave.jpg" alt="" />
+          <img src="./photo/brew/Kalita Wave.jpg" alt="Kalita Wave"/>
         </div>
         <div class="equipment-body">
           <h3>Kalita Wave</h3>
@@ -289,7 +285,7 @@
       <div class="enjoy-coffee">
         <img
           src="./photo/people-drinking-coffee-spacious-cafeteria(1).jpg"
-          alt=""
+          alt="People Drinking Coffee"
         />
       </div>
       <div class="enjoy-coffee-text">
@@ -344,7 +340,7 @@
         </div>
       </div>
       <div class="subscribe-img">
-        <img src="./photo/subscribe.jfif" alt="" />
+        <img src="./photo/subscribe.jfif" alt="Subscribe" />
       </div>
     </section>
 
@@ -352,8 +348,12 @@
     <section class="map-section" id="location-widget">
       <div class="map-header">
         <span class="map-label">Location</span>
-        <h2 class="map-title"><i class="fa-solid fa-location-dot"></i> Find Us</h2>
-        <p class="map-subtitle">Visit our cozy coffee shop in the heart of Yangon</p>
+        <h2 class="map-title">
+          <i class="fa-solid fa-location-dot"></i> Find Us
+        </h2>
+        <p class="map-subtitle">
+          Visit our cozy coffee shop in the heart of Yangon
+        </p>
       </div>
       <div class="map-full-wrap">
         <div class="map-info-panel">
@@ -364,7 +364,7 @@
           </div>
           <div class="map-info-item">
             <i class="fa-solid fa-clock"></i>
-            <span>Mon–Fri 7AM–9PM<br>Sat–Sun 8AM–10PM</span>
+            <span>Mon–Fri 7AM–9PM<br />Sat–Sun 8AM–10PM</span>
           </div>
           <div class="map-info-item">
             <i class="fa-solid fa-phone"></i>
@@ -385,7 +385,14 @@
           </a>
         </div>
         <div class="map-embed">
-          <iframe id="map-frame" src="https://www.google.com/maps?q=16.804454,96.137015&z=16&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bean Boutique Location"></iframe>
+          <iframe
+            id="map-frame"
+            src="https://www.google.com/maps?q=16.804454,96.137015&z=16&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Bean Boutique Location"
+          ></iframe>
         </div>
       </div>
     </section>
@@ -444,7 +451,11 @@
         </div>
       </div>
       <div class="footer-bar">
-        <p>&copy;2026 Bean Boutique. All rights reserved. | <a href="#" id="privacy-policy-link">Privacy Policy</a> | <a href="#" id="terms-link">Terms of Service</a></p>
+        <p>
+          &copy;2026 Bean Boutique. All rights reserved. |
+          <a href="#" id="privacy-policy-link">Privacy Policy</a> |
+          <a href="#" id="terms-link">Terms of Service</a>
+        </p>
       </div>
     </footer>
 
@@ -453,6 +464,5 @@
     <script src="./script/main.js"></script>
     <script src="./script/plugins.js"></script>
     <!-- Local plugin wiring: initializes social feed, encryption -->
-  
   </body>
 </html>
