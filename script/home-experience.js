@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const storage = {
     get(key) { try { return localStorage.getItem(key); } catch (_error) { return null; } },
-    set(key, value) { try { localStorage.setItem(key, value); } catch (_error) { /* Storage may be blocked; the UI still works. */ } }
+    set(key, value) { try { localStorage.setItem(key, value); } catch (_error) { /* Storage may be blocked; UI remains usable. */ } }
   };
 
-  // First-visit discount modal
+  // First-visit discount modal: opens once, three seconds after the homepage loads.
   const modal = document.getElementById("discount-modal");
   const backdrop = document.getElementById("discount-modal-backdrop");
   const closeButton = document.getElementById("discount-modal-close");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     backdrop.addEventListener("click", () => closeModal());
     document.addEventListener("keydown", (event) => {
       if (modal.hidden) return;
-      if (event.key === "Escape") closeModal();
+      if (event.key === "Escape") { closeModal(); return; }
       if (event.key !== "Tab") return;
       const focusable = [...modal.querySelectorAll("button, input, a[href]")].filter((element) => !element.disabled);
       if (!focusable.length) return;
@@ -53,26 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
       closeButton?.focus({ preventScroll: true });
     });
 
-    if (!storage.get("bb_discount_seen")) window.setTimeout(openModal, 850);
+    if (!storage.get("bb_discount_seen")) window.setTimeout(openModal, 3000);
   }
 
-  // Home auto-swiper
-  const swiper = document.getElementById("home-swiper");
+  // Hero auto-swiper with manual controls, keyboard support, and pause-on-interaction.
+  const swiper = document.getElementById("hero-swiper");
   if (!swiper) return;
-  const slides = [...swiper.querySelectorAll(".swiper-slide")];
-  const dots = [...document.querySelectorAll(".swiper-dot")];
-  const previous = document.getElementById("swiper-prev");
-  const next = document.getElementById("swiper-next");
+  const slides = [...swiper.querySelectorAll(".hero-slide")];
+  const dots = [...document.querySelectorAll(".hero-swiper-dot")];
+  const previous = document.getElementById("hero-swiper-prev");
+  const next = document.getElementById("hero-swiper-next");
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   let current = 0;
   let timer = null;
   let paused = false;
-
-  const restartTimer = () => {
-    if (reduceMotion) return;
-    window.clearInterval(timer);
-    timer = window.setInterval(() => { if (!paused) showSlide(current + 1); }, 5200);
-  };
 
   const showSlide = (index) => {
     current = (index + slides.length) % slides.length;
@@ -87,11 +81,17 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.classList.toggle("is-active", active);
       dot.setAttribute("aria-current", active ? "true" : "false");
     });
-    swiper.setAttribute("aria-label", `Bean Boutique highlight ${current + 1} of ${slides.length}`);
+    swiper.setAttribute("aria-label", `Bean Boutique featured story ${current + 1} of ${slides.length}`);
   };
 
+  const restartTimer = () => {
+    if (reduceMotion) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(() => { if (!paused) showSlide(current + 1); }, 5200);
+  };
   const pause = () => { paused = true; };
   const resume = () => { paused = false; restartTimer(); };
+
   previous?.addEventListener("click", () => { showSlide(current - 1); restartTimer(); });
   next?.addEventListener("click", () => { showSlide(current + 1); restartTimer(); });
   dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => { showSlide(dotIndex); restartTimer(); }));
