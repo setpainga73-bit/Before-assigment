@@ -3785,3 +3785,38 @@ body.modal-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .feature-grid-slide, .feature-swiper-dot, .feature-swiper-arrow { transition: none; }
 }
+
+/* Homepage discovery and editorial sections */
+.section-heading-note { max-width: 300px; margin: 0; color: var(--bb-muted); font-size: 13px; line-height: 1.7; }
+.ritual-section { background: var(--bb-cream); }
+.ritual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ritual-card { position: relative; display: flex; min-height: 295px; flex-direction: column; align-items: flex-start; padding: 30px; overflow: hidden; border-radius: 14px; color: var(--bb-espresso); transition: transform .25s cubic-bezier(.23,1,.32,1), box-shadow .25s ease; }
+.ritual-card::after { content: ""; position: absolute; right: -42px; bottom: -68px; width: 165px; height: 165px; border: 1px solid rgba(36,21,15,.14); border-radius: 50%; }
+.ritual-card:hover { color: var(--bb-espresso); transform: translateY(-5px); box-shadow: 0 18px 35px rgba(44,27,16,.12); }
+.ritual-card-warm { background: #e9a06e; }
+.ritual-card-soft { background: #d8ded1; }
+.ritual-card-cool { background: #cbdde0; }
+.ritual-card-icon { display: grid; place-items: center; width: 39px; height: 39px; margin-bottom: 35px; border: 1px solid rgba(36,21,15,.17); border-radius: 50%; font-size: 14px; }
+.ritual-card .eyebrow { margin-bottom: 8px; color: rgba(36,21,15,.62); }
+.ritual-card h3 { position: relative; z-index: 1; margin: 0 0 10px; font-size: 29px; letter-spacing: -.02em; }
+.ritual-card p { position: relative; z-index: 1; max-width: 255px; margin: 0 0 23px; color: rgba(36,21,15,.68); font-size: 12px; line-height: 1.62; }
+.ritual-card-link { position: relative; z-index: 1; margin-top: auto; font-size: 11px; font-weight: 800; }
+.ritual-card-link i { margin-left: 7px; transition: transform .18s ease; }
+.ritual-card:hover .ritual-card-link i { transform: translateX(4px); }
+.home-quote-section { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 30px; padding: clamp(54px, 7vw, 92px) clamp(24px, 9vw, 140px); color: #fff; background: var(--bb-espresso); }
+.quote-mark { align-self: start; color: var(--bb-citrus-soft); font-family: Georgia, serif; font-size: 93px; line-height: .8; }
+.home-quote-section blockquote { max-width: 680px; margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(25px, 3vw, 43px); line-height: 1.12; }
+.quote-byline { display: flex; align-items: center; gap: 11px; color: rgba(255,255,255,.62); font-size: 10px; line-height: 1.55; }
+.quote-byline strong { color: var(--bb-citrus-soft); font-weight: 500; }
+.quote-line { display: block; width: 28px; height: 1px; background: var(--bb-citrus-soft); }
+.home-quote-section .button { white-space: nowrap; }
+@media (max-width: 780px) {
+  .ritual-grid { grid-template-columns: 1fr; }
+  .ritual-card { min-height: 230px; }
+  .ritual-card-icon { margin-bottom: 23px; }
+  .home-quote-section { grid-template-columns: auto 1fr; gap: 16px; }
+  .home-quote-section .button { grid-column: 2; justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ritual-card, .ritual-card-link i { transition: none; }
+}
