@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     set(key, value) { try { localStorage.setItem(key, value); } catch (_error) { /* Storage may be blocked; UI remains usable. */ } }
   };
 
-  // First-visit discount modal: opens once, three seconds after the homepage loads.
+  // First-time visitor offer: show once, three seconds after opening the homepage.
   const modal = document.getElementById("discount-modal");
   const backdrop = document.getElementById("discount-modal-backdrop");
   const closeButton = document.getElementById("discount-modal-close");
@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!storage.get("bb_discount_seen")) window.setTimeout(openModal, 3000);
   }
 
-  // Hero auto-swiper with manual controls, keyboard support, and pause-on-interaction.
-  const swiper = document.getElementById("hero-swiper");
+  // Feature-grid auto-swiper: rotates the three cards inside the requested block.
+  const swiper = document.getElementById("feature-grid-swiper");
   if (!swiper) return;
-  const slides = [...swiper.querySelectorAll(".hero-slide")];
-  const dots = [...document.querySelectorAll(".hero-swiper-dot")];
-  const previous = document.getElementById("hero-swiper-prev");
-  const next = document.getElementById("hero-swiper-next");
+  const slides = [...swiper.querySelectorAll(".feature-grid-slide")];
+  const dots = [...swiper.querySelectorAll(".feature-swiper-dot")];
+  const previous = document.getElementById("feature-swiper-prev");
+  const next = document.getElementById("feature-swiper-next");
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   let current = 0;
   let timer = null;
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.classList.toggle("is-active", active);
       dot.setAttribute("aria-current", active ? "true" : "false");
     });
-    swiper.setAttribute("aria-label", `Bean Boutique featured story ${current + 1} of ${slides.length}`);
+    swiper.setAttribute("aria-label", `Bean Boutique feature ${current + 1} of ${slides.length}`);
   };
 
   const restartTimer = () => {
