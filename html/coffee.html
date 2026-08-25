@@ -1,290 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    />
-</head>
-<body>
-    
-    <nav>
-      <div class="logo"> Bean <span class="logo-span">Boutique</span></div>
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee | Bean Boutique</title>
+    <meta name="description" content="Find your next favourite cup with BrewMatch AI, then shop Bean Boutique's coffee menu." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  </head>
+  <body class="coffee-page">
+    <nav class="site-nav">
+      <a class="logo" href="../index.html" aria-label="Bean Boutique home">Bean <span class="logo-span">Boutique</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="#">Coffee</a></li>
+        <li><a class="active" href="#">Coffee</a></li>
         <li><a href="./equipment.html">Equipment</a></li>
-        <li><a href="./Event.html">Event</a></li>
-        <li><a href="./offer.html">Offer</a></li>
-        <li>
-          <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-        </li>
+        <li><a href="./Event.html">Events</a></li>
+        <li><a href="./offer.html">Offers</a></li>
+        <li><a class="cart-link" href="./cart.html" aria-label="View cart"><i class="fa-solid fa-bag-shopping"></i><span>Cart</span><b class="cart-count" id="cart-count">0</b></a></li>
       </ul>
     </nav>
 
-    <!-- page banner -->
-    <div class="page-banner">
-      <div class="banner-contect">
-        <h1>Coffee Section</h1>
-        <p>The best coffee taste</p>
-      </div>
-    </div>
-
-    <!-- search -->
-    <section class="section">
-      <div class="search-box">
-        <div class="search-container">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search your coffee......">
+    <main>
+      <section class="catalog-hero">
+        <div class="catalog-hero-copy">
+          <span class="eyebrow eyebrow-light"><i class="fa-solid fa-sparkles"></i> Find your daily ritual</span>
+          <h1>Good coffee starts with <em>knowing your taste.</em></h1>
+          <p>Explore the menu on your own, or let BrewMatch AI narrow it down to three cups you will actually love.</p>
+          <a class="hero-text-link" href="#brew-match">Try BrewMatch <i class="fa-solid fa-arrow-down"></i></a>
         </div>
-      </div>
-    </section>
+        <div class="hero-stat-card">
+          <span class="stat-kicker">Brewed for you</span>
+          <strong>09</strong>
+          <span>signature drinks &amp; teas</span>
+        </div>
+      </section>
 
-    <!-- coffee grid -->
-    <section>
-      <div class="coffee-grid">
-
-        <!-- CARD -->
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/blackcoffee.coffee.jpg" alt="">
+      <section class="finder-section" id="brew-match">
+        <div class="finder-intro">
+          <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> New · AI taste assistant</span>
+          <h2>BrewMatch <span>AI</span></h2>
+          <p class="finder-lede">Tell us how you want your cup to feel. BrewMatch reads your mood, flavour cues, and routine to create a considered shortlist from our menu.</p>
+          <div class="finder-points">
+            <div><i class="fa-solid fa-sliders"></i><span><strong>Made for your palate</strong><small>Recommendations adapt to flavour, temperature, and milk preferences.</small></span></div>
+            <div><i class="fa-solid fa-bolt"></i><span><strong>Ready in seconds</strong><small>No account, quiz fatigue, or guesswork required.</small></span></div>
           </div>
-          <div class="card-body">
-            <h3>Black Coffee</h3>
-            <p>Plain brewed coffee with no milk or sugar</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Bold, sometimes bitter, chocolatey to fruity flavors</p>
-
-            <h4>Brewing Method</h4>
-            <p>Drip coffee maker</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
+        </div>
+        <form class="finder-card" id="brew-match-form">
+          <div class="finder-card-top"><div><span class="step-label">01 / 02</span><h3>Describe your ideal cup</h3></div><span class="ai-orb" aria-hidden="true"><i class="fa-solid fa-sparkles"></i></span></div>
+          <label class="sr-only" for="taste-prompt">What are you in the mood for?</label>
+          <textarea id="taste-prompt" rows="3" placeholder="Try: smooth, creamy and a little sweet for a slow morning..."></textarea>
+          <div class="prompt-chips" aria-label="Suggested preferences">
+            <button type="button" class="prompt-chip" data-prompt="I want something bold and intense">Bold &amp; intense</button>
+            <button type="button" class="prompt-chip" data-prompt="I want something smooth and creamy">Smooth &amp; creamy</button>
+            <button type="button" class="prompt-chip" data-prompt="I want something refreshing and cold">Refreshing &amp; cold</button>
           </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/Cappuccino.jpg" alt="">
+          <div class="finder-fields">
+            <label>Best moment<select id="moment-select"><option value="morning">Slow morning</option><option value="focus">Deep focus</option><option value="treat">A little treat</option><option value="social">Catching up</option></select></label>
+            <label>Milk preference<select id="milk-select"><option value="any">Surprise me</option><option value="with-milk">With milk</option><option value="black">No milk</option><option value="fresh">Something different</option></select></label>
           </div>
-          <div class="card-body">
-            <h3>Cappuccino</h3>
-            <p>Espresso with steamed milk and foam</p>
+          <button class="finder-submit" type="submit"><i class="fa-solid fa-wand-magic-sparkles"></i> Find my match <span>→</span></button>
+          <p class="finder-note"><i class="fa-solid fa-shield-heart"></i> Your preferences stay in this browser.</p>
+        </form>
+      </section>
 
-            <h4>Tasting Notes</h4>
-            <p>Rich, creamy, strong coffee flavor</p>
+      <section class="recommendation-section" id="recommendation-section" hidden>
+        <div class="recommendation-heading"><div><span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Your BrewMatch result</span><h2>Three cups worth meeting.</h2></div><button class="text-button" id="reset-match" type="button">Start over <i class="fa-solid fa-rotate-right"></i></button></div>
+        <p class="recommendation-summary" id="recommendation-summary"></p>
+        <div class="recommendation-grid" id="recommendation-grid"></div>
+      </section>
 
-            <h4>Brewing Method</h4>
-            <p>Espresso machine + milk frother</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
+      <section class="catalog-section" id="menu">
+        <div class="catalog-heading"><div><span class="eyebrow">The menu</span><h2>Find your usual. Or your new one.</h2></div><span class="catalog-count" id="catalog-count">9 drinks</span></div>
+        <div class="catalog-toolbar">
+          <div class="filter-pills" role="group" aria-label="Filter drinks">
+            <button class="filter-pill active" type="button" data-filter="all">All</button>
+            <button class="filter-pill" type="button" data-filter="rich">Rich &amp; bold</button>
+            <button class="filter-pill" type="button" data-filter="creamy">Creamy</button>
+            <button class="filter-pill" type="button" data-filter="refreshing">Refreshing</button>
+            <button class="filter-pill" type="button" data-filter="different">Something different</button>
           </div>
-        </article>
+          <label class="catalog-search"><i class="fa-solid fa-magnifying-glass"></i><span class="sr-only">Search drinks</span><input id="coffee-search" type="search" placeholder="Search the menu" /></label>
+        </div>
+        <div class="coffee-grid redesigned-grid" id="coffee-grid">
+          <article class="coffee-card redesigned-card" data-id="black-coffee" data-tags="rich black focus morning">
+            <div class="card-img"><img src="../photo/coffee-card/blackcoffee.coffee.jpg" alt="Black Coffee" loading="lazy" /><span class="card-badge">Classic</span></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · No milk</span><strong>$2</strong></div><h3>Black Coffee</h3><p>Plain brewed coffee with a deep, honest finish.</p><div class="tasting-row"><span>Bold</span><span>Chocolatey</span></div><button class="btn-card product-add" type="button" data-product="black-coffee" data-name="Black Coffee" data-price="2" data-img="../photo/coffee-card/blackcoffee.coffee.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="cappuccino" data-tags="rich creamy morning social">
+            <div class="card-img"><img src="../photo/coffee-card/Cappuccino.jpg" alt="Cappuccino" loading="lazy" /><span class="card-badge">Bestseller</span></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · With milk</span><strong>$2</strong></div><h3>Cappuccino</h3><p>Espresso, steamed milk, and foam in perfect balance.</p><div class="tasting-row"><span>Rich</span><span>Airy</span></div><button class="btn-card product-add" type="button" data-product="cappuccino" data-name="Cappuccino" data-price="2" data-img="../photo/coffee-card/Cappuccino.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="espresso" data-tags="rich black focus treat">
+            <div class="card-img"><img src="../photo/coffee-card/espresso.coffee.jpg" alt="Espresso" loading="lazy" /><span class="card-badge">Intense</span></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · No milk</span><strong>$2</strong></div><h3>Espresso</h3><p>A concentrated shot with a thick, golden crema.</p><div class="tasting-row"><span>Intense</span><span>Crema</span></div><button class="btn-card product-add" type="button" data-product="espresso" data-name="Espresso" data-price="2" data-img="../photo/coffee-card/espresso.coffee.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="flat-white" data-tags="creamy rich focus morning">
+            <div class="card-img"><img src="../photo/coffee-card/flat-white.jpg" alt="Flat White" loading="lazy" /></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · With milk</span><strong>$2</strong></div><h3>Flat White</h3><p>Velvety microfoam softens a beautifully present espresso.</p><div class="tasting-row"><span>Velvety</span><span>Balanced</span></div><button class="btn-card product-add" type="button" data-product="flat-white" data-name="Flat White" data-price="2" data-img="../photo/coffee-card/flat-white.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="iced-latte" data-tags="creamy refreshing social morning">
+            <div class="card-img"><img src="../photo/coffee-card/ice latte.jpg" alt="Iced Latte" loading="lazy" /><span class="card-badge">Chilled</span></div>
+            <div class="card-body"><div class="card-meta"><span>Cold · With milk</span><strong>$2</strong></div><h3>Iced Latte</h3><p>Silky milk, espresso, and ice for a cool reset.</p><div class="tasting-row"><span>Smooth</span><span>Refreshing</span></div><button class="btn-card product-add" type="button" data-product="iced-latte" data-name="Iced Latte" data-price="2" data-img="../photo/coffee-card/ice latte.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="irish-coffee" data-tags="rich creamy treat social">
+            <div class="card-img"><img src="../photo/coffee-card/Irish Coffee.jpg" alt="Irish Coffee" loading="lazy" /><span class="card-badge">After hours</span></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · Cream</span><strong>$2</strong></div><h3>Irish Coffee</h3><p>Rich coffee, a little whiskey, and a soft cream finish.</p><div class="tasting-row"><span>Warm</span><span>Sweet</span></div><button class="btn-card product-add" type="button" data-product="irish-coffee" data-name="Irish Coffee" data-price="2" data-img="../photo/coffee-card/Irish Coffee.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="kiwi-soda" data-tags="refreshing different social treat">
+            <div class="card-img"><img src="../photo/coffee-card/kiwi-soda.jpg" alt="Kiwi Soda" loading="lazy" /><span class="card-badge">Zero coffee</span></div>
+            <div class="card-body"><div class="card-meta"><span>Cold · No coffee</span><strong>$2</strong></div><h3>Kiwi Soda</h3><p>Bright kiwi and sparkle for a playful, clean finish.</p><div class="tasting-row"><span>Sweet</span><span>Tangy</span></div><button class="btn-card product-add" type="button" data-product="kiwi-soda" data-name="Kiwi Soda" data-price="2" data-img="../photo/coffee-card/kiwi-soda.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="latte" data-tags="creamy morning social treat">
+            <div class="card-img"><img src="../photo/coffee-card/latte.jpg" alt="Latte" loading="lazy" /></div>
+            <div class="card-body"><div class="card-meta"><span>Hot · With milk</span><strong>$2</strong></div><h3>Latte</h3><p>Gentle espresso under a generous layer of steamed milk.</p><div class="tasting-row"><span>Mild</span><span>Creamy</span></div><button class="btn-card product-add" type="button" data-product="latte" data-name="Latte" data-price="2" data-img="../photo/coffee-card/latte.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+          <article class="coffee-card redesigned-card" data-id="matcha" data-tags="different creamy focus morning">
+            <div class="card-img"><img src="../photo/coffee-card/macha.coffee.jpg" alt="Matcha" loading="lazy" /><span class="card-badge">Tea ritual</span></div>
+            <div class="card-body"><div class="card-meta"><span>Hot or cold · Tea</span><strong>$2</strong></div><h3>Matcha</h3><p>Whisked green tea with a quietly earthy, smooth finish.</p><div class="tasting-row"><span>Earthy</span><span>Calm</span></div><button class="btn-card product-add" type="button" data-product="matcha" data-name="Matcha" data-price="2" data-img="../photo/coffee-card/macha.coffee.jpg">Add to cart <i class="fa-solid fa-arrow-right"></i></button></div>
+          </article>
+        </div>
+        <div class="empty-catalog" id="empty-catalog" hidden><i class="fa-solid fa-mug-hot"></i><h3>No exact match yet.</h3><p>Try a broader search, or let BrewMatch find a new direction.</p><a href="#brew-match">Open BrewMatch AI</a></div>
+      </section>
+    </main>
 
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/espresso.coffee.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Espresso</h3>
-            <p>Highly concentrated coffee</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Strong, intense, slightly bitter</p>
-
-            <h4>Brewing Method</h4>
-            <p>Espresso machine</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/flat-white.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Flat White</h3>
-            <p>Espresso with smooth steamed milk</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Velvety and creamy</p>
-
-            <h4>Brewing Method</h4>
-            <p>Espresso machine</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/ice latte.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Iced Latte</h3>
-            <p>Cold coffee with milk and ice</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Smooth and refreshing</p>
-
-            <h4>Brewing Method</h4>
-            <p>Espresso over ice</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/Irish Coffee.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Irish Coffee</h3>
-            <p>Coffee with whiskey and cream</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Rich, smooth, slightly sweet</p>
-
-            <h4>Brewing Method</h4>
-            <p>Hot coffee with whiskey</p>
-
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/kiwi-soda.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Kiwi Soda</h3>
-            <p>Kiwi with sparkling water</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Sweet and tangy</p>
-
-            <h4>Brewing Method</h4>
-            <p>Mixed with soda water</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/latte.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Latte</h3>
-            <p>Espresso with steamed milk</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Mild and creamy</p>
-
-            <h4>Brewing Method</h4>
-            <p>Espresso machine</p>
-
-            <p class="card-price">$2</p>
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-        <article class="coffee-card">
-          <div class="card-img">
-            <img src="../photo/coffee-card/macha.coffee.jpg" alt="">
-          </div>
-          <div class="card-body">
-            <h3>Matcha</h3>
-            <p>Green tea powder drink</p>
-
-            <h4>Tasting Notes</h4>
-            <p>Earthy and smooth</p>
-
-            <h4>Brewing Method</h4>
-            <p>Whisked with water or milk</p>
-
-            <button class="btn-card">Add to Cart</button>
-          </div>
-        </article>
-
-      </div>
-    </section>
-     <!-- PLUGIN 1: Social Media Widget (in footer) -->
-    <!-- bottom -->
     <footer>
       <div class="footer-container">
-        <div class="footer-contect">
-          <h3>Contact Us</h3>
-          <p>Email: setpainga73@gmail.com</p>
-          <p>Phone: +959 421 036 626</p>
-          <p>Address: NO.136 Padamya Street</p>
-        </div>
-        <div class="footer-contect">
-          <h3>Pages</h3>
-          <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="#">Coffee</a></li>
-            <li><a href="./equipment.html">Equipment</a></li>
-            <li><a href="./Event.html">Event</a></li>
-            <li><a href="./offer.html">Offer</a></li>
-          </ul>
-        </div>
-        <div class="footer-contect">
-          <h3>Follow Us</h3>
-          <!-- Local Social Feed (no external links) -->
-          <div class="social-feed"></div>
-          <div class="social">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-telegram"></i>
-          </div>
-        </div>
-        <div class="footer-contect">
-          <h3>Security & Trust</h3>
-          <!-- PLUGIN 3: Security / Trust Badges -->
-          <div class="trust-badges" id="trust-badges">
-            <div class="trust-badge">
-              <i class="fa-solid fa-lock"></i>
-              <span>SSL Encrypted</span>
-            </div>
-            <div class="trust-badge">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Data Protected</span>
-            </div>
-            <div class="trust-badge">
-              <i class="fa-solid fa-credit-card"></i>
-              <span>Secure Payments</span>
-            </div>
-            <div class="trust-badge">
-              <i class="fa-solid fa-user-shield"></i>
-              <span>GDPR Compliant</span>
-            </div>
-          </div>
-        </div>
+        <div class="footer-contect"><h3>Bean Boutique</h3><p>A small roastery with a big love for a thoughtful cup.</p><p>NO.136 Padamya Street, Yangon</p></div>
+        <div class="footer-contect"><h3>Explore</h3><ul><li><a href="../index.html">Home</a></li><li><a href="#brew-match">BrewMatch AI</a></li><li><a href="./equipment.html">Equipment</a></li><li><a href="./Event.html">Events</a></li></ul></div>
+        <div class="footer-contect"><h3>Stay in the loop</h3><p>New beans, quiet events, and offers worth waking up for.</p><a class="footer-email" href="mailto:setpainga73@gmail.com">setpainga73@gmail.com</a></div>
       </div>
-      <div class="footer-bar">
-        <p>&copy;2026 Bean Boutique. All rights reserved. | <a href="#" id="privacy-policy-link">Privacy Policy</a> | <a href="#" id="terms-link">Terms of Service</a></p>
-      </div>
+      <div class="footer-bar"><p>&copy;2026 Bean Boutique. Crafted for better mornings.</p></div>
     </footer>
-    <!-- Libraries for plugins -->
-    <!-- FullCalendar removed (no upcoming events) -->
     <script src="../script/plugins.js"></script>
     <script src="../script/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
-</body>
+    <script src="../script/ai-finder.js"></script>
+  </body>
 </html>
