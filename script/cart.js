@@ -52,12 +52,14 @@ function updateQty(id, delta) {
   if (item) item.qty = Math.max(1, item.qty + delta);
   persistCart();
   render();
+  window.dispatchEvent(new CustomEvent("bb-cart-updated"));
 }
 
 function removeItem(id) {
   cart = cart.filter((item) => item.id !== id);
   persistCart();
   render();
+  window.dispatchEvent(new CustomEvent("bb-cart-updated"));
 }
 
 window.updateQty = updateQty;

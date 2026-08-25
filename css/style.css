@@ -3669,3 +3669,20 @@ footer h3 {
 @media (prefers-reduced-motion: reduce) {
   .redesign-site *, .redesign-site *::before, .redesign-site *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* JavaScript interaction states */
+.scroll-progress { position: fixed; top: 0; left: 0; z-index: 10002; width: 100%; height: 3px; pointer-events: none; background: var(--bb-citrus); transform: scaleX(0); transform-origin: left center; transition: transform .12s linear; }
+.redesign-site .site-nav.has-scrolled { box-shadow: 0 8px 24px rgba(44,27,16,.07); }
+.redesign-site .js-reveal { opacity: 0; transform: translateY(18px); transition: opacity .42s ease, transform .42s cubic-bezier(.23,1,.32,1); }
+.redesign-site .js-reveal-visible { opacity: 1; transform: translateY(0); }
+.clear-cart-button { min-height: 0; padding: 0; border: 0; color: var(--bb-muted); background: transparent; font-size: 11px; font-weight: 800; }
+.clear-cart-button:hover { color: #b95c47; }
+.form-success-state { display: grid !important; place-items: center; align-content: center; min-height: 380px; text-align: center; }
+.form-success-state > i { color: var(--bb-sage); font-size: 42px; }
+.form-success-state h3 { margin: 18px 0 7px; color: var(--bb-espresso); font-size: 31px; }
+.form-success-state p { max-width: 315px; margin: 0 0 22px; font-size: 13px; line-height: 1.65; }
+.form-success-state p strong { color: var(--bb-espresso); }
+@media (prefers-reduced-motion: reduce) {
+  .redesign-site .js-reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-progress { transition: none; }
+}

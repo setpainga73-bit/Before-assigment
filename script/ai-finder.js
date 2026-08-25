@@ -25,6 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form || !prompt) return;
 
+  const momentSelect = document.getElementById("moment-select");
+  const milkSelect = document.getElementById("milk-select");
+  try {
+    const savedPreferences = JSON.parse(localStorage.getItem("bb_brew_preferences") || "null");
+    if (savedPreferences?.prompt) prompt.value = savedPreferences.prompt;
+    if (savedPreferences?.moment && momentSelect) momentSelect.value = savedPreferences.moment;
+    if (savedPreferences?.milk && milkSelect) milkSelect.value = savedPreferences.milk;
+  } catch (_error) { localStorage.removeItem("bb_brew_preferences"); }
+
+  const rememberPreferences = () => localStorage.setItem("bb_brew_preferences", JSON.stringify({ prompt: prompt.value, moment: momentSelect?.value, milk: milkSelect?.value }));
+  prompt.addEventListener("input", rememberPreferences);
+  momentSelect?.addEventListener("change", rememberPreferences);
+  milkSelect?.addEventListener("change", rememberPreferences);
+
   const getCart = () => {
     try { return JSON.parse(localStorage.getItem("bb_cart") || "[]"); } catch (_error) { return []; }
   };
@@ -82,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const runMatch = () => {
+    rememberPreferences();
     const recommendations = getRecommendations();
     const momentLabel = document.getElementById("moment-select")?.selectedOptions[0]?.textContent || "your ritual";
     resultGrid.innerHTML = recommendations.map(renderRecommendationCard).join("");
@@ -103,6 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (event) => { event.preventDefault(); runMatch(); });
   resetButton?.addEventListener("click", () => {
     resultSection.hidden = true;
+    prompt.value = "";
+    if (momentSelect) momentSelect.value = "morning";
+    if (milkSelect) milkSelect.value = "any";
+    localStorage.removeItem("bb_brew_preferences");
     prompt.focus();
     document.getElementById("brew-match")?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
